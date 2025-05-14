@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register/Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login_style.css') }}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  
+  <body>
+
+    <header>
+      <div class="container">
+        <h1 class="logo"></h1>
+  
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/advice">Advice</a></li>
+            <li><a href="/forum">Forum</a></li>
+            {% if session.get('user_id') %}
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="#">Register/Login</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+        <h1>Register/Login</h1>
+        
+        <a href="/register"><button>Register</button></a>
+        <a href="/login"><button>Login</button></a>
+
+    </main>
+    
+    <script src="index.js"></script>
+  
+  </body>
+</html>

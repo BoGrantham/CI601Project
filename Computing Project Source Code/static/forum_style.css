@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+.container {
+	width: 80%;
+	margin: 20px auto;
+}
+
+header {
+  background: #393e46;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: #0092ca;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+body {
+	margin: 0;
+  padding: 10px;
+	background: #eeeeee;
+	font-family: 'Verdana', sans-serif;
+	font-weight: 800;
+    font-size: 16pt;
+    color: #222831;
+    line-height: 1.5;
+      p {
+    font-weight: 500;
+    font-size: 12pt;
+  }
+}
+
+.main {
+    background-color: #eeeeee;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 100px;
+    text-align: center;
+}
+
+h1 {
+    color: #222831;
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: #eeeeee;
+    cursor: pointer;
+    background-color: #0092ca;
+    width: auto;
+    font-size: 16px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post {
+    background-color: #eeeeee;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: auto;
+}
+
+.post-header {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.post-info {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.post .reply-form {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.post .reply-form textarea {
+    width: 100px;
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.post .reply-form button {
+    background-color: #3498db;
+    color: #eeeeee;
+    border: none;
+    padding: 10px 15px;          /* Smaller padding */
+    font-size: 15px;            /* Smaller font size */
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+}
+
+.post .reply-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Replies Styling */
+.replies {
+    margin-left: 20px;
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.reply {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.reply:last-child {
+    border-bottom: none;
+}
+
+.reply .reply-header {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.reply .reply-info {
+    font-size: 12px;
+    color: #777;
+}
+
+.reply-form-container {
+  transition: all 0.3s ease;
+}
+
+
+form {
+    background-color: #eeeeee;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form textarea {
+    width: 500px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+button, form button, .small-btn {
+    background-color: #3498db;
+    color: #eeeeee;
+    border: none;
+    padding: 10px 15px;          /* Smaller padding */
+    font-size: 15px;            /* Smaller font size */
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+.nav-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-links a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #eeeeee;
+    font-size: 12px;
+}

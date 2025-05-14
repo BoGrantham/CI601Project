@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Discussion Forum</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forum_style.css') }}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  
+  <body>
+
+    <header>
+      <div class="container">
+        <h1 class="logo"></h1>
+  
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/advice">Advice</a></li>
+            <li><a href="#">Forum</a></li>
+            {% if session.get('user_id') %}
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/register_login">Register/Login</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+        <h2>Discussion Forum</h2>
+<p>Logged in as {{ username }} | {% if session.get('user_id') %} <a href="/logout"><button>Logout</button></a> {% else %} <a href="/register_login"><button>Register/Login</button></a> {% endif %}
+<form method="post">
+  <textarea name="content" required placeholder="Write something..."></textarea><br>
+  <button type="submit">Post</button>
+</form>
+
+<hr>
+
+{% for post in posts %}
+  <div class="post">
+    <div class="post-header">{{ post.username }}</div>
+    <div class="post-info">Posted at {{ post.timestamp }}</div>
+    <div class="post-content">{{ post.content }}</div>
+
+    <!-- Reply toggle button -->
+    <button class="toggle-reply-btn" data-post-id="{{ post.id }}">Reply</button>
+
+    <!-- Hidden reply form -->
+    <div class="reply-form-container" id="reply-form-{{ post.id }}" style="display: none;">
+      <form method="post" class="reply-form">
+        <textarea name="content" required placeholder="Reply to this post..."></textarea><br>
+        <input type="hidden" name="parent_post_id" value="{{ post.id }}">
+        <button type="submit">Submit Reply</button>
+      </form>
+    </div>
+
+    {% if post.replies %}
+      <div class="replies">
+        <strong>Replies:</strong>
+        {% for reply in post.replies %}
+          <div class="reply">
+            <div class="reply-header">{{ reply.username }}</div>
+            <div class="reply-info">Posted at {{ reply.timestamp }}</div>
+            <div class="reply-content">{{ reply.content }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}
+
+
+    </main>
+    
+    <script src="index.js"></script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".toggle-reply-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", function () {
+      const postId = this.getAttribute("data-post-id");
+      const form = document.getElementById("reply-form-" + postId);
+      if (form.style.display === "none") {
+        form.style.display = "block";
+      } else {
+        form.style.display = "none";
+      }
+    });
+  });
+});
+</script>
+  
+  </body>
+</html>

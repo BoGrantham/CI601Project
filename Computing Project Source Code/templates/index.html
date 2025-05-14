@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  
+  <body>
+
+    <header>
+      <div class="container">
+        <h1 class="logo"></h1>
+  
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/advice">Advice</a></li>
+            <li><a href="/forum">Forum</a></li>
+            {% if session.get('user_id') %}
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/register_login">Register/Login</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+        <h1>Welcome to my CI601 Computing Project Website!</h1>
+
+      <p>This website was designed for the CI601 Computing Project module, the final project for all Computer Science degrees. My
+        initial goal when creating this website was to foster an easily accessible space for others to connect, and I hope that the
+        effort that I put into this project is shown. </p>
+
+      <p>On this website, you can use the discussion forum (after creating an account) to chat and make friends with others. You can
+        also browse the advice section of the site.</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h3 class="w3-margin w3-xlarge">Have fun exploring!</h3>
+</div>
+    </main>
+    
+    <script src="index.js"></script>
+  
+  </body>
+</html>

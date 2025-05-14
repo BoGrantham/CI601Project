@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advice</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  
+  <body>
+
+    <header>
+      <div class="container">
+        <h1 class="logo"></h1>
+  
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Advice</a></li>
+            <li><a href="/forum">Forum</a></li>
+            {% if session.get('user_id') %}
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/register_login">Register/Login</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h1>Understanding Neurodiversity</h1>
+    <p>Learn about different neurodivergent conditions and how to support them.</p>
+            <div class="tabs">
+      <button onclick="showContent('asd')">ASD</button>
+      <button onclick="showContent('adhd')">ADHD</button>
+      <button onclick="showContent('dyslexia')">Dyslexia</button>
+      <button onclick="showContent('dyspraxia')">Dyspraxia</button>
+      <button onclick="showContent('dyscalculia')">Dyscalculia</button>
+      <button onclick="showContent('tourette')">Tourette</button>
+      <button onclick="showContent('spd')">SPD</button>
+      <button onclick="showContent('nvld')">NVLD</button>
+    </div>
+
+    <section id="info">
+      <div id="asd" class="content">
+        <h2>Autism Spectrum Disorder (ASD)</h2>
+        <p>ASD affects social interaction, communication, interests, and behavior. It varies widely among individuals.</p>
+        <ul>
+          <li>Use clear, literal language when communicating.</li>
+          <li>Provide structured routines and expectations.</li>
+          <li>Allow time for processing information.</li>
+        </ul>
+        <p><a href="https://www.autism.org.uk" target="_blank"><button>National Autistic Society</button></a></p>
+      </div>
+
+      <div id="adhd" class="content">
+        <h2>Attention-Deficit/Hyperactivity Disorder (ADHD)</h2>
+        <p>ADHD can cause inattention, hyperactivity, and impulsiveness, affecting work and social interactions.</p>
+        <ul>
+          <li>Break tasks into manageable chunks.</li>
+          <li>Use reminders and visual schedules.</li>
+          <li>Provide movement breaks when needed.</li>
+        </ul>
+        <p><a href="https://www.additudemag.com" target="_blank"><button>ADDitude Magazine</button></a></p>
+      </div>
+
+      <div id="dyslexia" class="content">
+        <h2>Dyslexia</h2>
+        <p>Dyslexia primarily affects reading, spelling, and writing skills due to differences in how the brain processes language.</p>
+        <ul>
+          <li>Use text-to-speech tools and audiobooks.</li>
+          <li>Present information visually when possible.</li>
+          <li>Allow extra time for reading-based tasks.</li>
+        </ul>
+        <p><a href="https://www.bdadyslexia.org.uk" target="_blank"><button>British Dyslexia Association</button></a></p>
+
+      </div>
+
+      <div id="dyspraxia" class="content">
+        <h2>Dyspraxia</h2>
+        <p>Dyspraxia affects physical coordination and can make everyday tasks more difficult.</p>
+        <ul>
+          <li>Offer tools for fine motor support (e.g., ergonomic pens).</li>
+          <li>Give step-by-step instructions for physical tasks.</li>
+          <li>Be patient and supportive with movement-based activities.</li>
+        </ul>
+        <p><a href="https://dyspraxiafoundation.org.uk" target="_blank"><button>Dyspraxia Foundation</button></a></p>
+      </div>
+
+      <div id="dyscalculia" class="content">
+        <h2>Dyscalculia</h2>
+        <p>Dyscalculia involves difficulty with math concepts, numbers, and reasoning.</p>
+        <ul>
+          <li>Use concrete examples and visual aids.</li>
+          <li>Allow calculator use and written formulas.</li>
+          <li>Break down math problems into clear steps.</li>
+        </ul>
+        <p><a href="https://www.dyscalculia.org" target="_blank"><button>Dyscalculia.org</button></a></p>
+      </div>
+
+            <div id="tourette" class="content">
+        <h2>Tourette Syndrome</h2>
+        <p>Tourette Syndrome is a neurological condition characterized by tics—involuntary sounds or movements.</p>
+        <ul>
+          <li>Do not draw attention to tics.</li>
+          <li>Provide quiet spaces if needed.</li>
+          <li>Promote understanding and acceptance.</li>
+        </ul>
+        <p><a href="https://www.tourettes-action.org.uk" target="_blank"><button>Tourettes Action (UK)</button></a></p>
+      </div>
+
+      <div id="spd" class="content">
+        <h2>Sensory Processing Disorder (SPD)</h2>
+        <p>SPD affects how the brain processes sensory information, causing over- or under-responsiveness.</p>
+        <ul>
+          <li>Offer sensory-friendly environments.</li>
+          <li>Provide fidget tools or sensory breaks.</li>
+          <li>Respect sensory boundaries.</li>
+        </ul>
+        <p><a href="https://www.spdstar.org" target="_blank"><button>STAR Institute for SPD</button></a></p>
+      </div>
+
+      <div id="nvld" class="content">
+        <h2>Nonverbal Learning Disorder (NVLD)</h2>
+        <p>NVLD involves challenges with visual-spatial and nonverbal cues, despite strong verbal skills.</p>
+        <ul>
+          <li>Use clear instructions with visuals.</li>
+          <li>Offer support for social cues and body language.</li>
+          <li>Provide structured routines.</li>
+        </ul>
+        <p><a href="https://nvld.org" target="_blank"><button>The NVLD Project</button></a></p>
+      </div>
+    </section>
+    </main>
+    
+    <script>
+      function showContent(id) {
+  const sections = document.querySelectorAll('.content');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+  document.getElementById(id).style.display = 'block';
+}
+
+// Show first tab by default
+window.onload = () => {
+  showContent('asd');
+};
+    </script>
+  
+  </body>
+</html>
